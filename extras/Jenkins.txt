@@ -1,0 +1,72 @@
+Step by step process
+
+1. Install Java & setup System Variables
+2. Download Jenkins installable & install Jenkins https://jenkins.io/download/thank-you-downloading-windows-installer-stable
+3. Authenticate First time use (http://
+4. Setup & install Jenkins Plugin (Select Plugin)
+5. Create First Admin user
+Advance way
+Install on (war file) Jetti server
+1. Donwload and copy to C://programs - https://jenkins.io/ - http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+2. From the folder run java -jar jenkins.war (to start the server)
+3. copy the admin user pwd in the cmd scrreen
+4. gp to localhost:8080 once jenkins propmpts for admin pwd paste in here
+5. Set up the inital login page (username,pwd,email,fullname..
+6. to change the default local host port 8080 run run java -jar jenkins.war --httpPort=811
+Install on Tomcat server
+1. Donwload and copy to C://programs and extrac - http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.29/bin/apache-tomcat-9.0.29-windows-x64.zip
+2. go to its bin folder and run startup.bat
+3. to stop server run shutdown.bat
+4. copy jenkins.war to Tomcat/apache=tomat=9012-windowsx84-apache-tomcat-9012/webapps
+5. go to the bin folder of Tomcat/apache... and double click on startup.bat
+6. go to localhost:8080/jenkins/
+
+Jenkins UI & Configurations
+A few Jenkin terms
+1. Job / Project: Runnable tasks that are configured in Jenkins
+2. Node: Each machine that is part of Jenkins grid.
+3. Executor: Thread or slot for execution of Jobs
+4. Build: Result got after executing a Job
+5. Plugin: Software that extends core functionality of Jenkins
+
+SonarQube-maven dependency and jacaco plugin (for code coverage %)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

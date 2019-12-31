@@ -1,0 +1,1012 @@
+repl.it, glot.io (webased practise coding)
+Basics
+print('Glen you are good at python coding')
+name=input('what is your name?')
+print('Hello '+name)
+Fundatmental Data Types: Int, float, bool, str, list, tuple, set, dict
+#Classes --> Custom Types
+#Specialised Data Types --> Spl packages/modules, like extensions
+##None --> Nothing
+complex (datype not much used) used only in complex maths
+print(bin(5)) - returns the binary representation of the numbr - output 0b101
+print(int('0b101',2)) - returns the number - output is 5
+
+print(2**3) output is 8 (power of)
+print(5//4) output is 1 (return int)
+print (6%4) output is 2 (remainder of)
+
+Ctrl / - to comment block of code
+
+search internet for docs. eg math function python (python documentation)
+
+operator precedence: (), **, * /, + -
+
+Expression vs statement - statement is the action performed, expression is the entire line of code, ie. the action performed and assigned to the variable
+
+#augmented assignment operator: e.g some_value=+2 (ie variable + 2)
+
+long_string = ''' 
+WOW
+0 0
+---
+'''  (this is another string type in python)
+
+Type Conversion - converts string back to integer/and data types or vice versa
+Escape Sequence - e.g \t, \', \n
+
+formated text (new feature in python 3)
+
+name='Johnny'
+age=55
+print(f 'hi {name} you are {age} years old')
+
+formated text (feature in python 2)
+print('hi {} you are {} years old'.format(name,age))
+
+string indexes
+e.g. sell = 'me me me'
+print(sell[0]) - output is m
+String slicing - syntax sell[start:stop:stepover]
+print(sell[0:8]) - output me me me
+step over
+print(sell[0:8:2]) - output  m m m
+print(sell[::-1]) - output em em em (it reverse the string)
+
+Immutability (string once created, can only be changed is to create it. We cannot partly reassign, eg, reassigning by index)
+
+Built in Functions, e.g str(), int(), pring()
+
+Built in methods, eg. .format, .upper, .capitalse, .lower, find, replace
+
+Booleans, bool can only be true or false
+
+comments - syntax #....
+
+Simple Password checker eg
+username=input('enter your user name')
+password=input('enter your password')
+passwordLength= len(password)
+hiddenPassword='*'* passwordLength
+print(f'{username}, your password  {hiddenPassword} is {len(password)} long')
+
+
+Data type - lists - its oredered sequence of object that can be of any type (its like form of arrays)
+
+e.g li3=[1,2,3,'a', 'b', True]
+print(li3[0])
+
+Lists slicing like done in string
+
+e.g. print(li3[0:2])
+
+Lists are mutable
+
+Matrix is to display multidimension lists
+e.g matrix = [
+[2,3,4],
+[4,5,7],
+[1,0,2]
+
+]
+
+List methods
+e.g .append just appends a new value in place and not returns the value
+.insert(index, newvalue)
+.extend - it lopps,iterates
+.pop - to remove the end value in list
+.remove - removes the given value to be removed
+.clear - removes whatever is in the list
+.reverse
+.sort
+.join - e.g " ".join['Hi", "my", "name", "is"]
+print(variable name[::,-1]) #this is slicing
+
+#list unpacking
+a,b,c, *other, d = [1,2,3,4,5,6,7,8,9]
+pring(a)
+pring(b)
+pring(c)
+pring(other)
+pring(d)
+
+None (meaning null/no value)
+
+#Dictionary
+dict (data type/data structure, its way to organise to data. Unlike like list this is not order, its an un ordered key pair)
+
+dictionary = {
+'a': [1.2,3]
+'b': 'hello'
+'x': True
+
+}
+
+#same way we can have dict in list
+my_list =[
+{
+'a': [1,2,3],'a': [1.2,3]
+'b': 'hello'
+'x': True
+
+}
+]
+
+dictionary methods
+.get
+dict (built in function)
+
+#in print("jojo" in user) output is True 
+print("hello" in user.values()) output is true
+.keys, .items, .clear, .copy, .pop, .popitem(), .update
+
+Tuple (like immutable list)
+my_tuple=(1,2,3,4)
+
+Tuple has only 2 methods
+count, index
+
+
+set (unordered collection of unique objects)
+my_set = {1,2,3,4,5,5} (in this case the last 5 will be ignored)
+.add (to append a unique value)
+
+Set methods
+.difference()
+.discard()
+.difference_update()
+.instersection()
+.isdisjoint()
+.issubset()
+.issuperset()
+.union()
+
+Conditon
+If <condition? statement(indent it)
+Elif <condition? statement(indent it)
+Else <condition? statement(indent it)
+
+Truthy vs Falsey (eg variable=2, pritn(bool(variable)) return True, if variable=None then returns False)
+
+#Ternary Operator
+is_friend = True
+can_message = 'message allowed' if is_friend else 'not allowed to message'
+print(can_message) output will be message allowed
+
+
+#Short Circuting
+
+e.g when using AND, OR functions (depends on the usage efficiency of the code will play an imp role)
+
+Logical Operators
+and, or, >, >=, <, <=, ==, !=, not (eg print(not(true)) retrns false)
+
+ExerciseL
+Logical Operators
+is_magician = True
+is_expert = False
+
+if is_magician and is_expert:
+  print('You are a expert magician')
+elif is_magician and not is_expert:
+ print('you are getting ther')
+elif not is_magician:
+  print('you need magic powers')
+
+
+is vs ==
+
+Loops
+
+for item in (1,2,3,4,5):
+  for x in ('a','b','c','d','e'):
+    print(item,x)
+
+sum total of given nos
+counter=0
+for item in [1,2,3]:
+  counter=counter+item
+print(counter)
+
+
+Range
+e.g 1
+for item in range(9):
+ 
+  print(list(range(9)))
+
+e.g 2
+for item in range(0,25,2):
+ 
+  print(item)
+
+
+
+enumerate function
+
+for i,char in enumerate(list(range(100))):
+	if char==50:
+		print(f'index of 50 is: {i}')
+
+
+
+while loops
+i=0
+
+while i < 50:
+  print(i)
+  i += 1
+
+
+in loops we can use break, continue, pass
+
+
+#Exercise simple gui
+christmas tree
+picture = [
+
+[0,0,0,1,0,0,0],
+[0,0,1,1,1,0,0],
+[0,1,1,1,1,1,0],
+[1,1,1,1,1,1,1],
+[0,0,0,1,0,0,0],
+[0,0,0,1,0,0,0]
+]
+for image in picture:
+	for pixel in image:
+		if (pixel == 0):
+			print(" ", end='')
+		elif (pixel == 1):
+			print('*',end='')
+
+	print('')
+
+
+#exercis find dupicates
+
+some_list= ['a','b','c','d','a', 'c']
+duplicates=[]
+
+for value in some_list:
+	if some_list.count(value)>1:
+		if value not in duplicates:
+			duplicates.append(value)
+print(duplicates)
+
+
+Functions (user defined) helps in DRY (dont repeat yourself) concept
+
+def example_function():
+	print('this is a user defined function')
+
+example_function()
+
+parameters (defines the function)
+
+def say_hello(name, emoji):
+  print(f'You doing good {name} {emoji}')
+
+arguments is calling/invoking the function
+
+say_hello('Glen'," ")
+
+Default parameters, key word arguments, doctstrings
+
+
+# *args **kwargs
+
+def super_func(*args):
+ print(args)
+ return sum(args)
+
+print(super_func(1,2,3,4,5))
+
+**kwargs
+
+def super_func(*args, **kwargs):
+ total=0
+ for items in kwargs.values():
+   total+=items
+ return sum(args) + total
+
+print(super_func(1,2,3,4,5, num1=6, num2=7))
+
+#Rule (order of parameter) params, *args, default parameters, **kwargs
+
+
+exercis - print highest even 
+def highest_even(li):
+  evens=[]
+  for items in li:
+      if items%2==0:
+       evens.append(items)
+  return max(evens)
+
+print(highest_even([2,10,13,14,17,20]))
+
+
+Scope - what variable do i have access to?
+Rules of scope
+1. start with local
+2. Parent local?
+3. Global
+4. built in python functions..
+
+
+OOP (object oriented programming)
+class PlayerCharater:
+	"""docstring for ClassName"""
+	def __init__(self, name):
+		self.name=name
+	def run(self):
+		print ('run')
+		return('done')
+
+player1=PlayerCharater('Glen')
+player2=PlayerCharater('Francis')
+
+print(player1.name)
+print(player2.name)
+print(player2.run())
+
+
+Four pillars of OOP
+
+1. Emcapsulatipm - Binding of data and functions - to keep everythin in tat box
+2. Abstractopm - hiding of information or abstracting of info. and giving access only what is necessary
+3. Inheritance - allows new objects to take om properties of existing objects, so we can inherit classes
+4. Polymorphism (many + form) - objects classes can share the same method name, but those method name can act differently
+
+Super() - refers to the class mentioned above
+
+Object Introception - to introspect/inspect at run time.
+ Function dir() gives all the functions, modules used
+
+Dunder Methods (magic methods) are special methods which python recognises
+visit python doc for dunder methods, idea is to how to modify them
+
+
+Method Resolution Order - .mro
+
+Functional Programing - is seperation of conserns/chunks, well organised
+	#map, filter, zip, and reduce
+
+#map
+
+def mulitplyby2(item):
+	return item*2
+
+print(list(map(mulitplyby2,[1,2,3])))
+
+#filter
+my_list=range(10)
+def only_odd(item):
+	return item % 2 !=0
+
+print(list(filter(only_odd,my_list)))
+
+
+#zip (zips the given items together)
+my_list=range(10)
+your_list=range(10)
+print(list(zip(my_list,your_list)))
+output: [(0, 0), (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7), (8, 8), (9, 9)]
+
+#reduce (it does not come with python package, we need to import from functools)
+#reduce
+from functools import reduce
+my_list=range(10)
+def accumulator(acc,item):
+	print(acc,item)
+	return acc+item
+output 0 0
+0 1
+1 2
+3 3
+6 4
+10 5
+15 6
+21 7
+28 8
+36 9
+45
+
+#lambada functions(used only once, anonymous fn)
+my_list=range(10)
+print(list(map(lambda item:item*2,my_list)))
+output: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+exercise 1
+#lambda to squar of
+print(list(map(lambda item:item**2,my_list)))
+output [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+exercise2
+#lambda sorting based on 2nd value
+a=[(0,1),(2,3),(5,4), (6,3)]
+a.sort(key=lambda x: x[1])
+print(a)
+
+#Data types - Comprehensions (list,set,dictionary)
+
+#comprehensions - list
+
+list_comhrension=[char for char in 'hello']
+
+print(list_comhrension)
+
+#comprehensions -set
+
+set_comhrension={num*2 for num in range(10) if num%2==0}
+
+print(set_comhrension)
+output - {0, 4, 8, 12, 16}
+
+
+#comprehensions -dictionary
+simple_dict={
+	'a':1,
+	'b':4
+}
+my_dict= {k:v**2 for k,v in simple_dict.items()}
+print(my_dict)
+output - {'a': 1, 'b': 16}
+
+
+Decorators: is using the power of functions. Decorators super charge our function, wraps aother
+e.g @decorator # Higher Order Function (HOC fn calling another fn)
+    def greet(func)
+	func()
+    filter()
+    def greet2():
+	def func():
+	  return 5
+	return func
+
+def my_
+
+#Decorator
+def my_decorator(func):
+	def wrap_func():
+		print('*******')
+		func()
+		print('*******')
+	return wrap_func
+
+@my_decorator
+def hello():
+	print('hello')
+
+hello()
+
+#Error handling
+Type error, out of range, ...
+Exept, finally, ValueError, ZeroDivisionError
+while True:
+	  try:
+		  age = int(input('what is your age '))
+		  print(age)
+    except:
+		  print('please enter a number')
+    else:
+      print('thank you')
+      break
+
+Generators - allows to use a special keyword which allows pause and resume
+
+def generator_function(num):
+	for i in range(num):
+		yield i*2
+
+for item in generator_function(100):
+	print(item)
+
+Exercise - generators- fibonacci series
+def fib(num):
+	a=0
+	b=1
+	for i in range(num):
+		yield a
+		temp=a
+		a=b
+		b=temp+b
+
+for item in fib(100):
+	print(item)
+
+
+Python built-in modules - we need to import (e.g email, math)
+help(random), dir(random), .sys, ..., counter, order, dattime, default, array
+
+exercise-random game
+from random import randint
+
+answer=randint(1,10)
+
+while True:
+    try:
+      print(answer)
+      guess=int(input('please enter a number between 1 -10: '))
+      if 0 < guess < 11:
+        if answer == guess:
+             print('your guess is right')
+             break
+      else:
+        print('hey enter number between 1 to 10')
+
+    except ValueError:
+        print('print only number between 1 to 10')
+        continue
+
+python package index (pypi.org) - modules we can check if its useful to us
+
+debugging
+	linting (built in to detect error), ide/editor, read errors, 15-20 errors which comes 90 times
+	pdb (python debugger) allows to interact with the code - pdb.set_trace()
+
+
+IO - Filepath - refer pathlib - Object,oriented filesystem paths
+
+"C:\Users\GLENFRAN\test.txt"
+
+ExerciseL Translate pip install translate
+import translate
+
+translator=Translator(to_lang='es')
+try:
+    with open('C:/Users/GLENFRAN/test.txt', mode='r') as my_file:
+        text=my_file.read()
+        translation=translator.translate(text)
+        with open('./test-ja.txt',mode='w') as my_file2:
+            my_file2.write(translation)
+        print(translation)
+except FileNotFoundError as e:
+    print('enter the right file path')
+
+
+Regular Expressions - regex101.com
+exercise - password checker 18 chars and ends in a number/digit
+
+import re
+
+pattern = re.compile(r'(^[a-zA-Z0-9_,+-]+@[a-zA-Z0-9_,+-]+\.[a-zA-Z0-9-.]+$)')
+string = 'Glen'
+pattern2=re.compile(r'[a-zA-Z0-9$%#@]{8,}\d')
+password = 'hdklklk9jhgjklbhj8'
+
+a=pattern.search(string)
+check=pattern2.fullmatch(password)
+print(check)
+
+output: <re.Match object; span=(0, 18), match='hdklklk9jhgjklbhj8'>
+
+Scripting - Pillow (helps in manipulating images)
+
+PDF - pip3 install PyPDF2
+#Combine pdfs:
+
+import PyPDF2
+import sys
+
+inputs=sys.argv[1:]
+
+def pdf_combiner(pdf_list):
+    merger=PyPDF2.PdfFileMerger()
+    for pdf in pdf_list:
+        print(pdf)
+        merger.append(pdf)
+    merger.write('super.pdf')
+
+pdf_combiner(inputs)
+
+#place watermark in each pdf pages
+import PyPDF2
+
+template=PyPDF2.PdfFileReader(open('208 super.pdf','rb'))
+output=PyPDF2.PdfFileWriter()
+watermark=PyPDF2.PdfFileReader(open('208 wtr.pdf','rb'))
+
+for i in range(template.getNumPages()):
+    page=template.getPage(i)
+    page.mergePage(watermark.getPage(0))
+    output.addPage(page)
+
+    with open('watermarked_output.pdf','wb') as file:
+        output.write(file)
+
+#send email
+import  smtplib
+from email.message import EmailMessage
+
+email=EmailMessage()
+email['from']='Glen Francis Joseph'
+email['to'] ='glen4u@gmail.com'
+email['subject']='Glen is master in Python programming'
+
+email.set_content('I am a python Master')
+
+with smtplib.SMTP(host='smtp.gmail.com',port=587) as smtp:
+    smtp.ehlo()
+    smtp.starttls()
+    smtp.login('glen4u@gmail.om','password')
+    smtp.send_message(email)
+    print('Email sent sucessfuuly!')
+
+
+#custom email send
+import  smtplib
+from email.message import EmailMessage
+from string import Template
+from pathlib import Path
+
+html=Template(Path('forCustomEmail.html').read_text())
+email=EmailMessage()
+email['from']='Glen Francis Joseph'
+email['to'] ='glen4u@gmail.com'
+email['subject']='Glen is master in Python programming'
+
+email.set_content(html.substitute({'name':'TinTin'}),html)
+
+with smtplib.SMTP(host='smtp.gmail.com',port=587) as smtp:
+    smtp.ehlo()
+    smtp.starttls()
+    smtp.login('glen4u@gmail.om','Anthony45')
+    smtp.send_message(email)
+    print('Email sent sucessfuuly!')
+
+#forCustomEmail.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    You just won so much money $name
+</body>
+</html>
+
+#password checker project
+import requests #this acts as html interface
+import hashlib
+import sys
+
+#response 400 means unauthorised. resopnse 200 is authorised, so use hashed pwd for this api
+# to hash pwd https://passwordsgenerator.net/sha1-hash-generator/
+
+def request_api_data(query_char):
+    url='https://api.pwnedpasswords.com/range/'+ query_char
+    res=requests.get(url)
+    if res.status_code != 200:
+        raise RuntimeError(f'Error fetching:{res.status_code},check the api and try again')
+    return res
+
+def get_password_leaks_count(hashes, hash_to_check):
+    hashes=(line.split(':') for line in hashes.text.splitlines())
+    for h, count in hashes:
+        if h==hash_to_check:
+            return count
+    return 0
+        #print(h,count)
+
+def pwned_api_check(password):
+    sha1password=(hashlib.sha1(password.encode('utf-8')).hexdigest().upper())
+    first5_chars, tail=sha1password[:5], sha1password[5:]
+    response=request_api_data(first5_chars)
+    #print(first5_chars,tail)
+    #print(response)
+    #return response
+    return get_password_leaks_count(response,tail)
+
+#pwned_api_check('123')
+
+def main(args):
+    for password in args:
+        count= pwned_api_check(password)
+        if count:
+            print(f'{password} was found {count} times... you should probably change your password!')
+        else:
+            print(f'{password} was NOT found..carry on')
+    return 'done'
+
+
+if __name__=='__main__':
+    main(['lhgdghkg'])
+    sys.exit(main(sys.argv[1:]))
+
+#twitter - pip3 install tweepy
+
+import tweepy
+import time
+
+consumer_key = ''
+consumer_secret = ''
+access_token = ''
+access_token_secret = ''
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+api = tweepy.API(auth)
+
+user = api.me()
+print (user.name) #prints your name.
+print (user.screen_name)
+print (user.followers_count)
+
+search = "zerotomastery"
+numberOfTweets = 2
+
+def limit_handle(cursor):
+  while True:
+    try:
+      yield cursor.next()
+    except tweepy.RateLimitError:
+      time.sleep(1000)
+
+#Be nice to your followers. Follow everyone!
+for follower in limit_handle(tweepy.Cursor(api.followers).items()):
+  if follower.name == 'Usernamehere':
+    print(follower.name)
+    follower.follow()
+
+
+# Be a narcisist and love your own tweets. or retweet anything with a keyword!
+for tweet in tweepy.Cursor(api.search, search).items(numberOfTweets):
+    try:
+        tweet.favorite()
+        print('Retweeted the tweet')
+    except tweepy.TweepError as e:
+        print(e.reason)
+    except StopIteration:
+        break
+
+#send sms
+from twilio.rest import Client
+
+# Your Account Sid and Auth Token from twilio.com/console
+# DANGER! This is insecure. See http://twil.io/secure
+account_sid = 'AC18c49e9808e29af42c4f37ccd1dd70c5'
+auth_token = 'd9c648f24d1100f19abf58bb3677e1e5'
+client = Client(account_sid, auth_token)
+
+message = client.messages \
+                .create(
+                     body="Is the second sattai movie over???.",
+                     from_='+13346036945',
+                     to='+919884033582'
+                 )
+
+print(message.sid)
+
+#webscraping 
+for developers/programers news.ycombinator.com (hackernews)
+to check what things are allowed in ethical webscraping https://news.ycombinator.com/robots.txt
+popular API https://developer.github.com/v3/, https://swapi.co/, jsonplaceholder.typicode.com/photos
+
+#pip3 install beautifulsoup4
+
+import requests
+from bs4 import BeautifulSoup
+import pprint #makes the output in terminal more neater
+
+res=requests.get('https://news.ycombinator.com/')
+#print(res.text)
+soup=BeautifulSoup(res.text,'html.parser') #cleans up the sourcecodefromString to html
+#print(soup)
+#print(soup.body.contents)
+#print(soup.find_all('div'))
+#print(soup.find_all('a'))
+#print(soup.find(id='score_21671112'))
+#print(soup.select('a'))
+#print(soup.select('div'))
+#print(soup.select('.score'))
+#print(soup.select('#score_21671112'))
+#print(soup.select('.storylink'))
+#print(soup.select('.storylink')[0])
+links=soup.select('.storylink')
+#votes=soup.select('.score')
+subtext=soup.select('.subtext')
+
+
+#def create_custom_hn(links,votes):
+def create_custom_hn(links,subtext):
+    hn=[]
+    for idx, item in enumerate(links):
+        title=links[idx].getText()
+        href=links[idx].get('href',None)
+        vote=subtext[idx].select('.score')
+        if len(vote):
+            points = int(vote[0].getText().replace(' points',''))
+        #points = votes[idx].getText()
+            #print(points)
+        #points=votes[idx].getText()
+        #print(points)
+        #hn.append(title)
+            hn.append({'title':title,'link':href,'votes':points})
+
+    return hn
+pprint.pprint(create_custom_hn(links,subtext))
+#print(create_custom_hn(links,subtext))
+
+#output [{'title': 'Shibboleths that get you past the initial script stage', 'link': 'https://twitter.com/patio11/status/1201003855770607618', 'votes': 48}, {'title': 'Study Finds Wind Speeds Are Increasing, Which Could Boost Wind Energy', 'link': 'https://www.wbur.org/hereandnow/2019/11/29/wind-energy-green-power', 'votes': 97}, {'title': 'Urbit', 'link': 'https://urbit.org/', 'votes': 193}, {'title': 'Inside Macintosh (1985) [pdf]', 'link': 'http://www.weihenstephan.org/~michaste/pagetable/mac/Inside_Macintosh.pdf', 'votes': 29}, {'title': 'Foreign Accent Syndrome', 'link': 'https://www.cbc.ca/radio/quirks/nov-23-psychedelics-and-waking-dreams-adding-feeling-to-virtual-reality-the-greatest-ape-and-more-1.5369357/now-i-have-a-lovely-scottish-brogue-the-science-behind-foreign-accent-syndrome-1.5369364', 'votes': 15}, {'title': 'Top Dark Matter Candidate Loses Ground to Tiniest Competitor', 'link': 'https://www.quantamagazine.org/why-dark-matter-might-be-axions-20191127/', 'votes': 15}, {'title': 'Can Saccadic Eye Movements Enhance Implicit and Explicit Memory? (2018)', 'link': 'https://sciencetrends.com/can-saccade-eye-movements-sire-effects-enhance-implicit-explicit-memory/', 'votes': 8}, {'title': 'Garbage Collection (2017)', 'link': 'http://craftinginterpreters.com/garbage-collection.html', 'votes': 182}, {'title': 'A Computability Proof of Gödel’s First Incompleteness Theorem', 'link': 'https://medium.com/cantors-paradise/a-computability-proof-of-g%C3%B6dels-first-incompleteness-theorem-2d685899117c', 'votes': 8}, {'title': 'The Internet Oracle', 'link': 'https://internetoracle.org/', 'votes': 11}, {'title': 'Belarus’s Soviet Economy', 'link': 'https://www.bloomberg.com/news/articles/2019-11-27/belarus-s-soviet-economy-has-worked-better-than-you-think', 'votes': 108}, {'title': 'Calculus Explained with GIFs and Pics (2014)', 'link': 'https://0a.io/chapter1/calculus-explained.html', 'votes': 610}, {'title': 'Adventures in Netflix', 'link': 'https://lars.ingebrigtsen.no/2019/02/14/adventures-in-netflix/', 'votes': 221}, {'title': "EU antitrust regulators say they are investigating Google's data collection", 'link': 'https://www.reuters.com/article/us-eu-alphabet-antitrust-exclusive/exclusive-eu-antitrust-regulators-say-they-are-investigating-googles-data-collection-idUSKBN1Y40NX', 'votes': 137}, {'title': '1958 Facom 128B Japanese Relay Computer, Still Working [video]', 'link': 'https://www.youtube.com/watch?v=_j544ELauus', 'votes': 33}, {'title': 'Practical Examples in Data Oriented Design', 'link': 'https://docs.google.com/presentation/d/17Bzle0w6jz-1ndabrvC5MXUIQ5jme0M8xBF71oz-0Js/present#slide=id.i0', 'votes': 60}, {'title': 'Dutch antennas unfolded behind the moon', 'link': 'https://www.ru.nl/english/news-agenda/news/vm/imapp/astrophysics/2019/dutch-antennas-unfolded-behind-moon/', 'votes': 74}, {'title': 'Miltown: A game-changing drug (2017)', 'link': 'https://www.cbc.ca/radio/ondrugs/miltown-a-game-changing-drug-you-ve-probably-never-heard-of-1.4237946', 'votes': 28}, {'title': 'Quadcopter Programming Part 2: Using the CMSIS Library and First Takeoff', 'link': 'https://timakro.de/blog/quadcopter-programming-part-2/', 'votes': 24}, {'title': 'Live video from a fishing boat in New Zealand', 'link': 'https://www.betterfish.co/', 'votes': 122}, {'title': 'Sherlock: Find usernames across social networks', 'link': 'https://github.com/sherlock-project/sherlock', 'votes': 145}, {'title': 'Small Projects, Big Companies', 'link': 'https://pioneer.app/blog/small-projects-big-companies/', 'votes': 179}, {'title': 'Filesystem devs should aim to make “badly written” app code “just work” (2009)', 'link': 'https://lwn.net/Articles/326505/', 'votes': 153}, {'title': 'Airmash – a game that refused to die', 'link': 'https://www.janwillemboer.nl/blog/posts/2019-11-airmash-history/', 'votes': 139}, {'title': 'History of Fidonet (1993)', 'link': 'http://www.olografix.org/gubi/estate/archivio/fido/fido.htm', 'votes': 146}, {'title': 'Shenzhen and Yiwu: Supply Chains and Consumerism', 'link': 'https://medium.com/@hydraulicsheep/window-shopping-in-yiwu-a-tale-of-globalisation-supply-chains-and-throwaway-culture-7b587a4e8aad', 'votes': 64}, {'title': 'MScSim – real-time flight dynamics simulation software', 'link': 'http://marekcel.pl/?lang=en&page=mscsim', 'votes': 42}, {'title': 'The Neues Museum claims copyright over 3D-printing files of the Nefertiti bust', 'link': 'https://slate.com/technology/2019/11/nefertiti-bust-neues-museum-3d-printing.html', 'votes': 91}, {'title': 'Gnu: Net', 'link': 'https://gnunet.org/en/#about', 'votes': 221}, {'title': 'Thermal Testing Raspberry Pi 4', 'link': 'https://www.raspberrypi.org/blog/thermal-testing-raspberry-pi-4/', 'votes': 107}]
+
+
+#webscraping more than 1 page
+import requests
+from bs4 import BeautifulSoup
+import pprint
+
+res = requests.get('https://news.ycombinator.com/news')
+res2 = requests.get('https://news.ycombinator.com/news?p=2')
+soup = BeautifulSoup(res.text, 'html.parser')
+soup2 = BeautifulSoup(res2.text, 'html.parser')
+
+links = soup.select('.storylink')
+subtext = soup.select('.subtext')
+links2 = soup2.select('.storylink')
+subtext2 = soup2.select('.subtext')
+
+mega_links = links + links2
+mega_subtext = subtext + subtext2
+
+def sort_stories_by_votes(hnlist):
+  return sorted(hnlist, key= lambda k:k['votes'], reverse=True)
+
+def create_custom_hn(links, subtext):
+  hn = []
+  for idx, item in enumerate(links):
+    title = item.getText()
+    href = item.get('href', None)
+    vote = subtext[idx].select('.score')
+    if len(vote):
+      points = int(vote[0].getText().replace(' points', ''))
+      if points > 99:
+        hn.append({'title': title, 'link': href, 'votes': points})
+  return sort_stories_by_votes(hn)
+ 
+pprint.pprint(create_custom_hn(mega_links, mega_subtext))
+
+scrapy.org - framework for webscraping
+
+
+#flask http://flask.palletsprojects.com/en/1.1.x/quickstart/
+#pip install flask
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
+@app.route('/blog')
+def blog():
+    return 'these are my thoughts and i know you all will agree with it...'
+
+#we can write as many routes
+@app.route('/blog/2020/dogs')
+def blog2():
+    return 'this is my dog...'
+cmd C:\path\to\app>set FLASK_APP=hello.py
+flask run (to create the below port and refresh server)
+ http://127.0.0.1:5000/
+ http://127.0.0.1:5000/blog
+
+cmd C:\path\to\app>set FLASK_ENV=development (to turn debug mode on, instead of eah time running 'flask run')
+
+#to call from html (create a folder templates and the html files needed)
+from flask import Flask, render_template
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Glen is expert in Python development! amd awesome person amd the list goes on...'
+
+@app.route('/blog')
+def blog():
+    return render_template('about.html')
+
+
+#http://flask.palletsprojects.com/en/1.1.x/patterns/favicon/
+place this in head tag <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+
+
+#https://www.pythonanywhere.com/ to host our webpage for beginner free
+
+#selenium automation
+https://www.seleniumeasy.com/test/basic-first-form-demo.html
+http://allselenium.info/python-selenium-commands-cheat-sheet-frequently-used/
+
+kaggle.com (to get huge sets of data) usernameJosephGlglen4u
+regex101-to confirm the currency regex
+
+
+#github setup process
+1.Set up a github 
+2. Start a project in gethub, give it a name select public, readme and click on create repository
+3. install https://git-scm.com/download/win Git-2.24.0.2-64-bit.exe
+4. Click Clone in gethub to copy the link (select http)
+5. go to the project folder and type git clone (one hidden first_project folder (inside git folder will be there to communicate) will be created from github)
+6. copy all the files you need into first_project folder
+7. run git add . (. adds the full folder)or the file name to add) inside first_project. 
+8. run git commit -m "message about the update"
+9. run git push (to let github know we are pushing/these are the changes) the files) then you will see all the files in github
+10. git clone - git add . (or the file name) - git commit -m "comments" - git push - git pull
+
+git branch (shows which branch we are in)
+git branch littlefeature (to create a subbranch-not to work on master branch rather a smaller branch)
+git checkout littlefeature (to start working on the new branch created)
+git merge master (to merge the new branch to the master)
+git
+Jenkins setup process
+Step by step process
+
+1. Install Java & setup System Variables
+2. Download Jenkins installable & install Jenkins https://jenkins.io/download/thank-you-downloading-windows-installer-stable
+3. Authenticate First time use (http://
+4. Setup & install Jenkins Plugin (Select Plugin)
+5. Create First Admin user
+Advance way
+Install on (war file) Jetti server
+1. Donwload and copy to C://programs - https://jenkins.io/ - http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+2. From the folder run java -jar jenkins.war (to start the server)
+3. copy the admin user pwd in the cmd scrreen
+4. gp to localhost:8080 once jenkins propmpts for admin pwd paste in here
+5. Set up the inital login page (username,pwd,email,fullname..
+6. to change the default local host port 8080 run run java -jar jenkins.war --httpPort=811
+Install on Tomcat server
+1. Donwload and copy to C://programs and extrac - http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.29/bin/apache-tomcat-9.0.29-windows-x64.zip
+2. go to its bin folder and run startup.bat
+3. to stop server run shutdown.bat
+4. copy jenkins.war to Tomcat/apache=tomat=9012-windowsx84-apache-tomcat-9012/webapps
+5. go to the bin folder of Tomcat/apache... and double click on startup.bat
+6. go to localhost:8080/jenkins/
+
+Jenkins UI & Configurations
+A few Jenkin terms
+1. Job / Project: Runnable tasks that are configured in Jenkins
+2. Node: Each machine that is part of Jenkins grid.
+3. Executor: Thread or slot for execution of Jobs
+4. Build: Result got after executing a Job
+5. Plugin: Software that extends core functionality of Jenkins
+
+SonarQube-maven dependency and jacaco plugin (for code coverage %)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

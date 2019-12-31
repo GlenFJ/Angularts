@@ -1,0 +1,29 @@
+
+
+Sheets("Sheet1").Range("A:A").ClearContents
+
+
+Dim i, RowNum
+For i = 1 to 10
+
+generate:
+
+RowNum = Application.RoundUp(Rnd()*110,0)
+
+Cells(i,3).Value = RowNum
+
+If Application.Countif (Sheets("Sheet1").[A:A], Sheets("Sheet2").cells(RowNum, "A"))=0 then
+Sheets("Sheet1").Range("A" & Rows.Count).End(xlUp).Offset(1).Value=Sheets("Sheet2").Cells(RowNum, "A").Value
+GoTo generate
+End if
+
+Nexxt i
+
+Sheets("Sheet1").Select
+
+Range("A1").Value="Define the follwing terms in MS Excel"
+
+Range("A1").Font.Bold=True
+
+Range("A1").Columns.AutoFit
+Range("B1").Select

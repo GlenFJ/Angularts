@@ -1,0 +1,232 @@
+What is webelement
+
+Html consist of 3: Tag, attribute, text
+<html>
+<body> 
+<a href=http://End2EndQA-Automation id=”Glen” name=”GFJ” class=”selenium”>Test-Automation</a>
+"
+Username"
+<input type="text"/>
+"
+Password"
+<input type="password"/>
+
+</body>
+</html>
+
+WHAT IS LOCATORS?
+ 
+Locators are used to identify the element.
+In Selenium before performing any action (click, type etc) we should find the element using locators.
+ In Selenium there are 8 types are locators.
+All of them are static methods in By class (it is an abstract class).
+·         All the methods takes string as argument and it returns an object of type By.
+·         The By object is used as input argument for findElement() method.
+·         Return type of findElement() method is WebElement (it is an Interface).
+ 
+
+
+THE LIST OF SELENIUM LOCATORS:
+ 
+1. By.tagName
+driver.findElement(By.tagName("a")).click();
+2. By.id
+driver.findElement(By.id("pgupta")).click();
+3. By.name
+driver.findElement(By.name("Pankaj Gupta")).click();
+4. By.className
+driver.findElement(By.className("cl")).click();
+5. By.linkText
+driver.findElement(By.linkText("QA-Automation")).click();
+Note: the locator ‘linkText’ can be used only if the element is a link
+(html tag of the element should be a).
+6. By.partialLinkText
+driver.findElement(By.partialLinkText("QA")).click();
+7. By.cssSelector [Id, Class name, Attribut, Startwith, End with, Substring, Contains
+Basic syntax. css=tagname[attribute name=attribut value]
+E.g.input[type='password'], id-input#email, class-input.inputtext (cannot index in CSS, by default it will reflect first intstnce found)
+breakable class (multiple class in tagname)-input.inputtext._58mg._5dba._2ph-
+ startsWith-input[id^='ema'], ends with- input[id$='ail'], subtsring-  input[id*='ai']
+contains-
+8. By.xpath
+Exact Match
+//a[text()='Forgotten account?'] --Chrome syntax works
+
+
+
+E.g in java
+public class BasicTest
+{
+public static void main(String[] args)
+{
+System.setProperty("webdriver.chrome.driver", "/Users/glen/Downloads/Software/Driver/chromedriver.exe"
+
+WebDriver driver=new ChromeDriver();
+driver.get("file://D:/htmlPage1.html");//using Above html code which we have created
+By b=By.tagName("a");
+WebElement e = driver.findElement(b);
+e.click();
+
+
+}
+}
+
+TYPES OF XPATH:
+ 
+1. Absolute xpath
+Specifying complete path of the element form the root till the element present is called as absolute xpath. Ex:
+
+Example:
+
+Xpath										Matching Node
+/html/body/div[1]/input[2]								B
+/html/body/div[2]/input[2]								D
+/html/body/div[1]/input[1]| /html/body/div[2]/input[2]				AD
+/html/body/div[1]/input[2]| /html/body/div[2]/input[1]	
+2. Relative xpath
+//tagname[@attribute name='attribute value']
+e.g. //input[@id='email']
+We can use more than one attribute in an ‘xpath’ expression:
+//input[@id='u_0_m' and @name='firstname']
+//input[@id='u_0_m' or @name='firstname']
+//input[@id='u_0_m' or @name='firstname' or @aria-label='First name']
+
+3. xpath by Attribute
+4. xpath by text() function
+If Attribute is matching with more than one element or if the attribute is not present then we can identify the element using its text. It has following syntax:
+
+//tagname[text()=’textValue’]
+
+Examples:
+//a[text()='Forgotten account?']
+
+
+5. xpath by contains() function
+When we inspect the element, we cannot make out whether the space is given using the spacebar or by using the key work or using the ‘&nbsp’.
+Or Sub String we can use.
+Note:
+We can use contains function when there is a ‘Non Breakable Space’ to identifythe element. It has following syntax
+//tagname [contains(@AttributeName,’AttributeValue’)] 
+//tag [contains(text(), ‘textValue’)].
+
+Example:
+//a[contains(text(),'Forgot')]
+//input[contains(@type,'submit')]
+
+6. Traversing in xpath
+We can write ‘xpath’ expression which navigates from one element to another element which is called as traversing. In ‘xpath’ there are 2 types of traversing.
+i. Forward Traversing 
+ii. Backward Traversing.
+
+
+i. Forward Traversing
+E.g. //label[text()='Female']/../../span[2]/input
+Navigating from parent element to its any of the child element is called as forward traversing. 
+
+
+ii. Backward Traversing
+E.g //label[text()='Female']/../input
+Navigating from child element to any of its parent element is called as backward traversing. 
+
+
+We have following and preceding as well for traversing:
+E.g Preceding - //label[text()='Female']/preceding::input[1]
+Following - //input[@type='submit']/following::a[1]
+
+Parent-child traversing
+//a[text()='Forgotten account?']//parent::div/parent::td/parent::tr//parent::tbody/child::tr[2]/child::td/child::input[1]
+
+7. Independent-Dependent
+
+8. xpath by group index
+e.g (//select[@id='month']/descendant::option)[5]
+
+9. Start-wth
+//select[starts-with(@id,'month')]
+
+10. Following and Preceding-sibling
+//select[@id='month']//following-sibling::select
+//select[@id='month']//preceding-sibling::select
+
+11. ancestor and Descendant
+
+(//a[text()='Forgotten account?']//ancestor::tbody/tr[2]/td/input)[1]
+(//select[@id='month']/descendant::option)[5]
+
+
+12. Dynamic selection using method
+
+public class xpathTest {
+ public static WebDriver driver;
+ public static void man(String[] args)
+ {
+   SelectGender('Male')
+  }
+
+  public static void SelectGender(String gender)
+  {
+	System.setProperty("webdriver.chrome.driver", "/User/glen/Downloads/Software/Driver/chromedriver");
+	driver=new ChromeDriver();
+	driver.get("https://www.facebook.com/");
+	driver.manage().window().maximize();
+	WebElement radioBtn=driver.findElement(By.xpath("//label[text()='"+gender+"']/preceding::input[1]));
+	radionBtn.click();
+   }
+
+}
+
+
+
+Important Locatiors
+
+ID Locator
+Name Locator
+CSS Locator 
+LinkText
+XPath Locator
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

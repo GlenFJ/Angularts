@@ -1,0 +1,51 @@
+4 Pillars of Object Oriented Programing
+
+Abstraction - exposing only what is needed and hiding other details e.g phone
+Inheritance - getting the properties from another class and using the own one also, e.g tutors
+Enscapulsation - bank account, restricting / control of data who sees what
+Polymorphism - performing  a single different functions, e.g Bill gates performs Founder, Businessman, philantrophis, father...
+
+Types of testing in software (Unit Testing, Integration Testing, Functional Testing, System Testing, Stress Testing, Acceptance Testing, Regression Testing)
+
+Unit Testing
+Testing individual units
+Low-level testing
+Mostly done by developers
+Normally dependencies are ignored
+
+
+Integration Testing
+Verifying integrations among software components
+Integration between software and hardware
+
+Functional Testing
+Tests the functions
+Verifying proper outputs
+Implementation of the functions are ignored while testing
+
+Sytem Testing
+Testing whether the software is working in different systems or not
+Testing web applications in different browsers
+Can be tested only when the system is fully implemented
+
+Stress Testing
+Is tested under extreme conditions
+Being tested beyond the limit of specificatios
+How much load can the software take?
+
+Acceptance Testing
+Tested by customer
+Checks if all the requirments are fulfilled
+Working as expected
+
+Regression Testin
+Is done after any changes take place in code, system, or settings
+Make sure that the new implementation doesnt break the software
+
+---------------------------
+Microsoft Visual Studio
+---------------------------
+Visual Studio cannot start debugging because the debug target 'C:\Users\GLENFRAN\source\repos\HelloWorldiReposFldr\HelloWorldiReposFldr\bin\Debug\HelloWorldiReposFldr.exe' is missing. Please build the project and retry, or set the OutputPath and AssemblyName properties appropriately to point at the correct location for the target assembly.
+---------------------------
+OK   
+---------------------------

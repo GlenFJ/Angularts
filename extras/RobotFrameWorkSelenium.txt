@@ -1,0 +1,388 @@
+Robot Framework Selenium-AngulasJS essentials
+
+#Step by Step Installation
+1. Setup Python https://www.python.org/downloads/release/python-2713/ Windows x86-64 MSI installer
+2. Setup pycharm https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows&code=PCC (community edition)
+3. Setup Intellibot Plugin (supports robot framework keywords/intellisense/keword color change) go to File-Settings-Plugin-Marketplace search and install Intellibot Selenium patched
+4. Configure PIP - setup environmental variable Python27-Scripts folder
+5. Install ExtendedSelenium2Library (only support in python 2.x) pip install robotframework, pip install robotframework-extendedselenium2library
+to check what modules installed , run python, then help('modules')
+
+#Tpes of files and the syntax/sections
+
+1. TC_001_GetRequest.robot - test case file
+
+# 4 sections
+
+*** Settings ***
+
+Lbrary Requestibrary
+
+*** Variables ***
+
+${Application_URL}	http://www.google.com
+
+*** Test Cases ***
+TC_001_Get_Requst
+	$(url)= set variable HelloWorld
+	log to console	$(Application_URL)
+	log to console $(url)
+
+*** Keywords ***  #very rare used in Testcase file
+
+2. Resources.robot (write reusable codes)
+
+# 4 sections
+
+*** Settings ***
+
+*** Variables ***
+
+*** Test Cases *** #very rare used in resources file
+
+*** Keywords ***
+
+
+3. Python Files (.py) - user defined keywords using python code
+4. Excel File (xlsx) - Test Data
+5. JSon File (Request Content)
+
+
+http://amasik.com/demo/angularjs/angular-app/#/login
+https://thetestingworld.com/testings/
+
+
+Rules to be followed in Robot Framework
+
+Rule 1 e.g Library (2spaces/tab) RequestLibrary. Install Package, Add libraries 
+
+Rule 2. keyword will have only 1 space. eg create session
+
+Rule 3. other than keyword use tab/2 spaces
+
+Rule 4. Body should have different indentation
+
+To Execute robot test case (right click and 'Open in Terminal': robot filename
+
+nuget.org/packages/System.ValueTuple
+
+Browser related keywords
+
+1. Open Browser - open browser	url Chrome
+2. Close Browser - close browser
+3. Close All Browser - close all browsers
+4. Maximise browser window - maximize browser window
+
+
+Element Locators
+
+Install Plugins
+
+1. CSS& XPath Checker - for Chrome
+2. Selenium IDE - Firefox
+
+
+Locate element throug ID
+eg. id=email
+
+Locate element throug ID
+name=email
+
+Locate element throug LinkText
+eg link=forgot account?
+
+
+
+CSS Element Locator
+
+Syntax 1
+
+1. Use Id of the element - css=#email (# means id)
+
+2. Use tag with Id - css=input#email
+
+Syntax 2
+
+1. Class of the element - css=.inputtext
+2. Use tag with class - css=input.inputtext
+
+Syntax 3
+1. Use any attribute of the element [type='email']
+2. Use tag with any attribute  css=input[id='email']
+
+Syntax 4
+
+1. Use Id with any attribute of the element (syntax 1&3) css=#pass[type='password']
+2. Use tag with id with any attribute css=input#pass[type='password']
+
+Syntax 4
+
+1. Use class with any attribute of the element (syntax 2&3) .inputtext[type='email']
+2. Use tag with class with any attribute input.inputtext[type='email']
+
+Xpath Element Locator
+
+Syntax -1
+//input[@value='Log In']
+Use Single attribute
+Can use any attribute value
+Always check attribute which looks static
+
+Syntax -2
+//input[@name='firstname' or @aria-label='First name']
+Use Multiple Attribute with OR condition
+Can use any attribute
+
+
+Syntax -3
+//select[@name='birthday_day' and @title='Day']
+Use Multiple Attributes with AND condition
+Can use any attribute
+
+
+Syntax -4
+//select[@*='birthday_day' and @*='Day']
+//*[@name='birthday_day' and @title='Day']
+Use * on place of attribute name
+Use * on place of tag name
+
+
+Syntax -5
+//div[text()='Create a new account']
+write xpath using innertext
+use exact text
+
+Syntax -6
+//div[contains(text(),'new account')]
+
+Write xpath using partial innertext
+Will pass substrng of inner text
+
+
+Syntax -7
+//input[contains(@type, 'pass')]
+Write xpath attribute, match partial value of the attribute
+
+
+Syntax -8
+//table[@role='presentation']/tbody/tr[2]/td[1]/input
+Locate Element through its parent
+Taking exampe when we are not able to locate an element directly by using any approach
+
+Syntax -9
+//input[@type='email']/parent::td/parent::tr/parent::tbody/parent::table
+Locate Element through its child
+Taking exampl when we are not able to locate an element directly by using any approach
+
+
+Syntax -10
+//input[@id='tab2']/following-sibling::label
+Locate element through its siblings
+Taking example when we are not able to locate an element directly by using any approach
+
+
+Syntax -11
+//input[@id='email']/parent::td/following-sibling::td[1]/input
+//input[@id='pass']/parent::td/preceeding-sibling::td/input
+Locate Element through parent | child }| siblings
+Taking example when we are not able to locate an element directly by using any approach
+
+
+Working with different elements
+
+1. Enter data into textbox
+
+2. Clear data of textbox
+
+
+
+Angular Related Element Locators
+model
+binding
+partial binding
+button
+partial button
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,338 @@
+Development evnvironment setup
+1. Install Node Js (download install latest from https://nodejs.org/en/) - te check node version: node -v
+to check npm version: npm -v
+2. npm install -g @angular/cli (installs angular command line globally)
+3. ng new firstproject (this creates a project) - give (no)type n for angular routing, select SCSS
+if error "npm WARN deprecated core-js@2.6.11: core-js@<3 is no longer maintained and not recommended for usage due to the number of issues. Please, upgrade your dependencies to the actual version of core-js@3.
+npm ERR! cb() never called!" 
+run npm install --save core-js@^3 (inside the project directory), then npm outdated from the project directory and then update the missing/outdated package using npm update [-g] [<pkg>...] (or update in package.json and do npm i)
+4. ng serve (run from firstproject)
+5. Install Git from its official website (make sure git bash here and Additional icons are selected)
+6. create an account from github.com, under repository click New to create new repository. 
+make sure to select intiialise with readme
+7. from git bash cli (from the folder location)
+git config --global user.name "GlenFJ"
+git config --global user.email glen4u@gmail.com
+git clone https://github.com/GlenFJ/Angularts.git
+8. from visual studio code firstproject run in terminal ng build. then ng serve to open the localhost angular
+five files build by ng build a. dist (mainly consist js used for deployments) b. e2e (end to end-used for unit testing)
+c. node_modules (contains all angular libs and dependencies (npm install helps to get back node_modules folder if deleted) 
+package.json contains all dependicies need in node_modules
+d. src (this is to place we work, its has .ts, assets-db connections,etc, karma(also responsible for testing)
+tslint.js-is for setting rules for angular app at deployment, angular.json (gives info on locations of src, assets, etc..)
+e. dist (distribution folder, main.js it contains components after development ready for deployment)
+to create component / services run from terminal in vsc ng generate component giveacomponentname / ng generate services giveaservicename
+9. Webpack (automation tool to get all scripts and combine them into a bundle of fills, split dependency tree to blocks that would be loaded in demand, minimize the load tim)
+This happens when we run ng serv (five files bundled polyfills.js, main.js, runtime.js, styles.js, vendor.js)
+10. Typescritpt- its superset of Javascript with more features like Types, interfaces... Compiles .TS into JS so browsr can understand it.
+Typescritpt Types Number, Boolean, String, String[], any, undefined
+Syntax var idnetifier : Type = value;
+e.g 1. var x: number =33; //single line
+e.g 2 var xy : number; // double line
+	xy=322;
+Typescript operators: Arithmetic operators, Logical operators, Relational operators, Assignment operators, Conditonal operator(?)
+11. In Visual Studio code create a new .ts file then from mkt place install extension Quokka.js. Then from command palette select Quokka.js: Start on Current file
+
+
+Restful 4 methods - Get Put Post Delete
+
+Creating RESTFul Web service
+
+/UserService/users - GET | Show list of all the users
+
+/UserService/addUser[] - POST JSON (File to Add details of new user)
+
+/UserService/getUser/:id[] - GET | Show details of a user
+
+
+
+Directives, Angular Services, Observable, RxJS
+
+to know about Angular, RxJs version run ng v
+
+Add Bootstrap (responsive webpage developed by twitter) to Angular Project
+npm install bootstrap@3 jquery --save (run from your project folder)
+
+
+
+Project online store
+1. ng new onlinestore routing y, and select css
+2. fron onlinestore folder run npm install bootstrap@4.4.1 use 4.3.1(check for latest version at https://getbootstrap.com/)
+3. npm install font-awesome@4.7.0 https://fontawesome.com/icons?d=gallery
+4. npm install --save-dev json-server@0.12.1 /  npm install --save-dev json-server@0.15.1
+5. npm install --save-dev jsonwebtoken@8.1.1
+6. go to angular.json add bootstrap (C:\Users\GLENFRAN\onlinestore\node_modules\bootstrap\dist\css\bootstrap.min.css) and font awesome (C:\Users\GLENFRAN\onlinestore\node_modules\font-awesome\css\font-awesome.min.css) under styles
+like this in angular.json ],
+            "styles": [
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css"
+
+            ],
+            "scripts": []
+
+7. under src create 'Model' folder, create file 'product.model.ts' 
+create class: (? from below means these fields are optional)
+export class Product
+{
+    constructor(
+        public id? : number,
+        public name? : string,
+        public category? : string,
+        public description? : string,
+        public price? : number)
+
+    {
+
+    }
+}
+
+
+8. under 'Model' folder also create file 'static.datasource.ts'
+create class:
+import {Product} from './product.model';
+import {observable, from, Observable} from "rxjs";
+import {Injectable} from "@angular/core";
+
+@Injectable()
+export class StaticDataSource {
+ private products: Product[] = [
+	new Product(1, "Flyraom Lace up shoe", "Category 1", "Sneaker Shoe (Category 1)", 100),
+	new Product(2, "T-Shirt", "Category 1", "Sports T-shirt High Quality (Category 1)", 90),
+	new Product(3, "TR Trail Shoe", "Category 1", "Running Shoes (Category 1)", 99),
+	new Product(4, "Cooler", "Category 1", "High Quality Cooler (Category 1)", 50),
+	new Product(5, "Graphic T-shirt Grey L", "Category 1", "Cotton T-shirt (Category 1)", 60),
+    new Product(6, "Euphoria EDP 100 ml", "Category 2", "Liquid Amber, Black Violet, Cream, Mahogany Wood, (Category 2)",90),
+	new Product(7, "Eternity Moment EDP 100 ml", "Category 2", "Brazilian Rose Woo, Cashmere Wood, Musk, S (Category 2)", 120),
+	new Product(8, "In Red EDT 100 ml", "Category 2", "Lily, Jasmine, Violet Leaf, Rose, Blackcurrant, Pink (Category 2)", 130),
+	new Product(9, "Flower Pink EDT 100 ml", "Category 2", "Othmani roses", 99),
+	new Product(10, "Musk EDC 59 ml", "Category 2", "Musk EDC 59 ml", 88),
+
+];
+
+//create method since we using injectable/observable
+getProducts() : Observable<Product[]>
+{
+	return from([this.products]);
+}
+
+}
+
+
+9. under 'Model' folder create file 'product.repository.ts (this helps to hide/ stage between the data source and the client side/web)
+import { Injectable } from '@angular/core';
+import { Product } from './product.model';
+import { StaticDataSource } from './static.datasource';
+
+@Injectable ()
+export class ProductRepository
+{
+    private products : Product[] = [];
+    private catogeries : string[] = [];
+
+    constructor(private datasource: StaticDataSource)
+
+    {
+        datasource.getProducts().subscribe( data => 
+            {
+                this.products=data;
+                this.catogeries=data.map(p=>p.category)
+                .filter((c, index, array) => array.indexOf(c)==index).sort();
+            } );
+        }
+
+        getProducts(category: string=null):Product[]{
+            return this.products
+                .filter(p => category == null || category == p.category);
+            
+        }
+        getProduct(id:number) : Product
+        {
+            return this.products.find(p=>p.id==id);
+
+        }
+        getCategories(): string[]
+        {
+            return this.catogeries;
+
+        }
+    }
+
+
+10. under 'Model' folder create file 'model.module.ts'
+
+
+11. from terminal-project folder run ng generate component Store (5 files would get created under app-Store folder)
+
+12. in store.component.ts file
+import { ProductRepository } from './../../Model/product.repository';
+import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/Model/product.model';
+
+
+@Component({
+  selector: 'store',
+  templateUrl: './store.component.html',
+  styleUrls: ['./store.component.css']
+})
+export class StoreComponent implements OnInit {
+
+  constructor(private repository : ProductRepository) 
+  { }
+
+  ngOnInit() {
+  }
+  get products() : Product[]
+  {
+    return this.repository.getProducts();
+  }
+
+  get categories() : string[]
+  {
+    return this.repository.getCategories();
+  }
+}
+
+
+13. in store.component.html file (responsible for viewing-we need to Bootstrap-Gri Sysem, we can divide how many ever we want) 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col bg-danger text-white">
+            <a class="navbar-brand">Online Store</a>
+        </div>
+    </div>
+
+    <div class="row text-white">
+        <div class="col-3 bg-info p-2">
+            categories {{categories.length}}
+        </div>
+        <div class="col-9 bg-success p-2">
+            Products {{Products.length}}
+        </div>
+    </div>
+
+
+
+
+</div>
+
+14. under store folder create file store.module.ts (so we seperate configuration) and update app.module.ts with import store.module.ts and under imports key in StoreModule
+import { ModelModule } from './../../Model/Model.module';
+import { StoreComponent } from './store.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
+
+@NgModule({
+    imports: [
+        ModelModule,
+        BrowserModule,
+        FormsModule
+    ],
+    declarations:
+    [
+        StoreComponent
+    ],
+    exports:
+    [
+        StoreComponent
+    ]
+    
+   
+  })
+  export class StoreModule { }
+
+15. in app.component.ts 
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  //templateUrl: './app.component.html',
+  template: "<store></store>",
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'onlinestore';
+}
+
+
+16. in app.component.html - we can remove the defaults
+
+
+17. from project folder run ng serve to check if all ok till now
+
+18. From Store folder create file cart.model.ts
+
+19. Register cart.model.ts to Model.module.ts
+
+20. add component from terminal - ng g c cartSummary
+
+21. open the file cart.summary.components.ts
+
+22. open the file cart.summary.component.html
+
+23. register cart.summary.component.html to store.module.ts (and remove the one which got registered by default in app.modulte.ts)
+
+24. Integrate cartsummary to store.component.ts
+
+25. go to store.component.html (contains the web view), integrate cart  selector: 'cart-summary',
+
+26. We have three URLs
+/store url will display list of products
+/cart url will display the user's cart in detail
+/checkout url will display the checkout process
+
+update store.module.ts which is responsible for
+
+27. ng g c cartDetails
+28. go to cart-details.component.html
+
+29. go to cart-details.component.ts
+
+30 ng g c checkout
+
+31. go to app routing.module.ts
+
+32. app.components.ts
+
+33. go to store.compnent.ts to implement js-page navigation
+
+34. update store.module.ts
+
+35. [implement routing guard] create a file under app, as storefirst.guard.ts
+
+36. define storefirst.guard.ts in app-routing.module.ts
+
+37. go to cart.details.components.ts
+
+38. //order.model.ts in model folder (id, name, address, city, state, zip, countryl shipped or not)
+//update data source return json saveOrder,order (mode-static.datasource.ts)
+// product have some attributes
+donot access it directly, we can do same for Order
+dont add order to product repositorys, as per OOP principle-seperate your concern
+create order.repository.ts under Model folder
+//Update Module as we now added two files
+//gather details from user-checkout component, 
+Order Sent, Order Submitted? - add some styling accordingly
+
+Note. for good programmer - Data structure, Design Pattern, OOP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
